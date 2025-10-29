@@ -28,7 +28,8 @@ export class FormEdit implements OnInit {
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
       year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
-      director: ['', [Validators.required, Validators.minLength(2)]]
+      director: ['', [Validators.required, Validators.minLength(2)]],
+      posterUrl: ['', [Validators.pattern('https?://.+')]]
     });
 
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -38,7 +39,8 @@ export class FormEdit implements OnInit {
         this.form.patchValue({
           title: m.title,
           year: m.year,
-          director: m.director
+          director: m.director,
+          posterUrl: m.posterUrl
         });
       });
     }

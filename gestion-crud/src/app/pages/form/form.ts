@@ -22,7 +22,8 @@ export class Form implements OnInit {
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
       year: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
-      director: ['', [Validators.required, Validators.minLength(2)]]
+      director: ['', [Validators.required, Validators.minLength(2)]],
+      posterUrl: ['', [Validators.pattern('https?://.+')]]
     });
   }
 

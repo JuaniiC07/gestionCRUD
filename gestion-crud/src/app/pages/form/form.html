@@ -30,6 +30,14 @@
 				</div>
 			</div>
 
+			<div class="form-row">
+				<label for="posterUrl">URL Poster (opcional)</label>
+				<input id="posterUrl" formControlName="posterUrl" placeholder="https://..." />
+				<div *ngIf="form.get('posterUrl')?.touched && form.get('posterUrl')?.invalid">
+					<small *ngIf="form.get('posterUrl')?.errors?.['pattern']">Ingrese una URL válida (http/https).</small>
+				</div>
+			</div>
+
 			<div class="form-actions">
 				<button class="btn btn-primary" type="submit" [disabled]="form.invalid">Guardar</button>
 				<a class="btn btn-outline" routerLink="/list">Cancelar</a>
