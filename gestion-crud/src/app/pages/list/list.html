@@ -11,7 +11,7 @@
 
 			<div class="movie-grid" *ngIf="movies.length > 0">
 			<div class="movie-card" *ngFor="let m of movies">
-				<div class="movie-poster" [style.background-image]="'url(https://picsum.photos/seed/'+m.id+'/400/600)'">
+				<div class="movie-poster" [style.background-image]="m.posterUrl ? 'url(' + m.posterUrl + ')' : 'url(https://picsum.photos/seed/' + m.id + '/400/600)'">
 					<div class="poster-overlay">
 						<button title="Detalles" class="icon" (click)="goToDetails(m.id)">🔍</button>
 						<button title="Editar" class="icon" (click)="goToEdit(m.id)">✏️</button>

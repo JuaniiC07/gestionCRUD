@@ -6,9 +6,9 @@
 			<div class="detail-row"><strong>Año:</strong> {{ movie.year }}</div>
 			<div class="detail-row"><strong>Director:</strong> {{ movie.director }}</div>
 		</div>
-		<div class="details-right">
-			<div class="movie-poster"></div>
-		</div>
+			<div class="details-right">
+				<div class="movie-poster" [style.background-image]="movie.posterUrl ? 'url(' + movie.posterUrl + ')' : 'url(https://picsum.photos/seed/' + movie.id + '/400/600)'"></div>
+			</div>
 	</div>
 
 	<ng-template #noMovie>

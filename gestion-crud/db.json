@@ -4,25 +4,29 @@
       "id": "1",
       "title": "The Matrix",
       "year": 1999,
-      "director": "Lana Wachowski"
+      "director": "Lana Wachowski",
+      "posterUrl": "https://picsum.photos/id/1011/400/600"
     },
     {
       "id": "2",
       "title": "Inception",
       "year": 2010,
-      "director": "Christopher Nolan"
+      "director": "Christopher Nolan",
+      "posterUrl": "https://picsum.photos/id/1025/400/600"
     },
     {
       "title": "Interstellarr",
       "year": 2014,
       "director": "Christopher Nolan",
-      "id": "3"
+      "id": "3",
+      "posterUrl": "https://picsum.photos/id/1003/400/600"
     },
     {
       "id": "43f9",
       "title": "Cars",
       "year": 2006,
-      "director": "John Lasseter"
+      "director": "John Lasseter",
+      "posterUrl": "https://picsum.photos/seed/43f9/400/600"
     }
   ]
 }
