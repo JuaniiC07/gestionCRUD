@@ -1,0 +1,86 @@
+:root{
+	--cinema-bg:#07060a;
+	--curtain-red:#7b0b0b;
+	--accent-gold:#d4af37;
+	--muted:#bfb8b0;
+	--card-bg: rgba(255,255,255,0.03);
+	--glass: rgba(255,255,255,0.03);
+	--glass-2: rgba(255,255,255,0.02);
+	--shadow: 0 6px 18px rgba(0,0,0,0.6);
+	font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html,body{
+	height:100%;
+	margin:0;
+	background: radial-gradient( circle at 10% 10%, rgba(255,255,255,0.02), transparent 10%),
+							linear-gradient(180deg, #040304 0%, var(--cinema-bg) 100%);
+	color:var(--muted);
+}
+
+.container{
+	max-width:1000px;
+	margin:2.5rem auto;
+	padding:1.25rem;
+}
+
+.page-title{
+	color:var(--accent-gold);
+	font-size:1.75rem;
+	letter-spacing:0.06rem;
+	margin:0 0 1rem 0;
+	text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.marquee{
+	background: linear-gradient(90deg, rgba(123,11,11,0.95), rgba(20,20,20,0.6));
+	padding:0.5rem 1rem;
+	border-radius:6px;
+	color: white;
+	box-shadow: var(--shadow);
+}
+
+.btn{
+	display:inline-block;
+	padding:0.5rem 0.9rem;
+	border-radius:6px;
+	border:0;
+	cursor:pointer;
+	font-weight:600;
+}
+.btn-primary{ background:var(--accent-gold); color:#0b0b0b }
+.btn-danger{ background:#b00000; color:white }
+.btn-outline{ background:transparent; border:1px solid rgba(255,255,255,0.08); color:var(--muted)}
+
+.card{
+	background:var(--card-bg);
+	padding:1rem;
+	border-radius:8px;
+	box-shadow: var(--shadow);
+}
+
+.grid{ display:grid; gap:1rem; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
+/* form shared styles */
+.form-row{ display:flex; flex-direction:column; gap:0.25rem; margin-bottom:0.75rem }
+input[type="text"], input[type="number"], textarea{
+	background:var(--glass);
+	border:1px solid rgba(255,255,255,0.04);
+	color:var(--muted);
+	padding:0.5rem 0.6rem;
+	border-radius:6px;
+	outline:none;
+}
+input:focus, textarea:focus{ box-shadow: 0 0 0 3px rgba(212,175,55,0.08); border-color:var(--accent-gold) }
+
+small.field-error{ color:#ffb3b3; font-size:0.85rem }
+
+/* film-strip accent for footer/header */
+.film-strip{ background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(0,0,0,0.05)); padding:0.25rem 0 }
+
+/* responsive tweaks */
+@media (max-width:600px){
+	.container{ margin:1rem; padding:0.75rem }
+	.page-title{ font-size:1.3rem }
+}
+

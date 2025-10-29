@@ -1,0 +1,17 @@
+<div class="container">
+	<div *ngIf="movie; else noMovie" class="details-container card">
+		<div class="details-left">
+			<h2>{{ movie.title }}</h2>
+			<p class="info">Una ficha rápida de la película seleccionada.</p>
+			<div class="detail-row"><strong>Año:</strong> {{ movie.year }}</div>
+			<div class="detail-row"><strong>Director:</strong> {{ movie.director }}</div>
+		</div>
+		<div class="details-right">
+			<div class="movie-poster"></div>
+		</div>
+	</div>
+
+	<ng-template #noMovie>
+		<div class="card">No se encontró la película.</div>
+	</ng-template>
+</div>

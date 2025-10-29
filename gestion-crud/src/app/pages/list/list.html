@@ -1,0 +1,28 @@
+<div class="container">
+	<h2 class="page-title">Listado de Películas</h2>
+
+	<div class="card">
+		<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem">
+			<div class="marquee">Cartelera</div>
+			<a class="btn btn-primary" routerLink="/form">+ Nueva película</a>
+		</div>
+
+			<div *ngIf="movies.length === 0">No hay películas cargadas.</div>
+
+			<div class="movie-grid" *ngIf="movies.length > 0">
+			<div class="movie-card" *ngFor="let m of movies">
+				<div class="movie-poster" [style.background-image]="'url(https://picsum.photos/seed/'+m.id+'/400/600)'">
+					<div class="poster-overlay">
+						<button title="Detalles" class="icon" (click)="goToDetails(m.id)">🔍</button>
+						<button title="Editar" class="icon" (click)="goToEdit(m.id)">✏️</button>
+						<button title="Eliminar" class="icon danger" (click)="delete(m.id)">🗑️</button>
+					</div>
+					</div>
+				<div class="movie-body">
+					<h3>{{ m.title }}</h3>
+					<p class="meta"><strong>Año:</strong> {{ m.year }} — <strong>Director:</strong> {{ m.director }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

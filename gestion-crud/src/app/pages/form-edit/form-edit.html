@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="card form-container">
+		<h2 class="page-title">Editar película</h2>
+
+		<form [formGroup]="form" (ngSubmit)="submit()">
+			<div class="form-row">
+				<label for="title">Título</label>
+				<input id="title" formControlName="title" />
+				<div *ngIf="form.get('title')?.touched && form.get('title')?.invalid">
+					<small *ngIf="form.get('title')?.errors?.['required']">El título es obligatorio.</small>
+					<small *ngIf="form.get('title')?.errors?.['minlength']">Mínimo 2 caracteres.</small>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<label for="year">Año</label>
+				<input id="year" formControlName="year" />
+				<div *ngIf="form.get('year')?.touched && form.get('year')?.invalid">
+					<small *ngIf="form.get('year')?.errors?.['required']">El año es obligatorio.</small>
+					<small *ngIf="form.get('year')?.errors?.['pattern']">Debe ser un número de 4 dígitos.</small>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<label for="director">Director</label>
+				<input id="director" formControlName="director" />
+				<div *ngIf="form.get('director')?.touched && form.get('director')?.invalid">
+					<small *ngIf="form.get('director')?.errors?.['required']">El director es obligatorio.</small>
+					<small *ngIf="form.get('director')?.errors?.['minlength']">Mínimo 2 caracteres.</small>
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<button class="btn btn-primary" type="submit" [disabled]="form.invalid">Guardar cambios</button>
+				<a class="btn btn-outline" routerLink="/list">Cancelar</a>
+			</div>
+		</form>
+	</div>
+</div>
