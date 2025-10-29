@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="card reserve-card" *ngIf="movie; else noMovie">
+    <div class="left">
+      <div class="poster" [style.background-image]="movie.posterUrl ? 'url('+movie.posterUrl+')' : 'url(https://picsum.photos/seed/'+movie.id+'/300/420)'"></div>
+    </div>
+    <div class="right">
+      <h2>{{ movie.title }}</h2>
+      <p class="muted">{{ movie.year }} — {{ movie.director }}</p>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <label>Seleccioná función</label>
+        <select formControlName="time">
+          <option value="" disabled>-- elegir --</option>
+          <option *ngFor="let t of times" [value]="t">{{ t }}</option>
+        </select>
+
+        <label>Tu nombre</label>
+        <input formControlName="name" />
+
+        <label>Cantidad de entradas</label>
+        <input type="number" formControlName="tickets" min="1" max="10" />
+
+        <div class="actions">
+          <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Reservar</button>
+          <a class="btn btn-outline" routerLink="/list">Cancelar</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <ng-template #noMovie>
+    <div class="card">No se encontró la película.</div>
+  </ng-template>
+</div>

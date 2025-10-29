@@ -1,18 +1,63 @@
-<div class="container">
+<div class="container home-page">
 	<section class="home-hero card">
-		<div>
+		<div class="hero-left">
 			<h2 class="page-title">Bienvenido al Cine</h2>
-			<p class="info">Una pequeña aplicación para practicar CRUD sobre películas. Navega, crea, edita y elimina títulos.</p>
+			<p class="info">Explora cartelera, horarios y trailers. Crea y administra películas fácilmente.</p>
+			<a class="btn btn-primary" routerLink="/list">Ver cartelera</a>
+		</div>
+		<div class="hero-right">
+			<div class="now-playing">
+				<h4>En cartelera ahora</h4>
+				<div class="now-list">
+					<ng-container *ngFor="let m of featured">
+						<div class="now-item">
+							<div class="thumb" [style.background-image]="m.posterUrl ? 'url('+m.posterUrl+')' : 'url(https://picsum.photos/seed/'+m.id+'/200/300)'"></div>
+							<div class="meta">
+								<div class="title">{{ m.title }}</div>
+								<div class="sub">{{ m.year }} — {{ m.director }}</div>
+							</div>
+						</div>
+					</ng-container>
+					<div *ngIf="featured.length === 0" class="muted">No hay estrenos por ahora.</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
-	<section style="margin-top:1rem;">
-		<div class="card">
-			<h3 style="margin-top:0">Novedades</h3>
-			<div class="grid">
-				<div class="card">Próximamente: funciones, posters y filtros.</div>
-				<div class="card">API simulada con json-server</div>
-				<div class="card">Tema cinematográfico aplicado</div>
+	<section class="card schedule">
+		<h3>Próximas funciones</h3>
+		<div class="schedule-grid">
+			<div class="schedule-item" *ngFor="let m of featured">
+				<div class="poster" [style.background-image]="m.posterUrl ? 'url('+m.posterUrl+')' : 'url(https://picsum.photos/seed/'+m.id+'/300/420)'"></div>
+				<div class="info-block">
+					<h4>{{ m.title }}</h4>
+					<p class="desc">Duración: 120 min · Sala 1</p>
+					<div class="times">
+						<span>13:00</span>
+						<span>16:30</span>
+						<span>19:45</span>
+						<span>22:30</span>
+					</div>
+					  <a class="btn btn-outline" [routerLink]="['/reserve', m.id]">Comprar entradas</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="card trailers">
+		<h3>Trailers</h3>
+		<div class="trailers-row">
+			<div class="trailer" *ngFor="let t of trailers">
+					<div class="embed-wrap">
+						<!-- Fallback to a safe link/thumbnail to avoid iframe security blocking (NG0904 / adblock issues). -->
+						<a class="thumbnail-link" [href]="'https://www.youtube.com/watch?v=' + t.id" target="_blank" rel="noopener noreferrer">
+							<div class="thumb-img" [style.background-image]="'url(https://img.youtube.com/vi/' + t.id + '/hqdefault.jpg)'">
+								<div class="play-overlay">▶</div>
+							</div>
+						</a>
+						<div *ngIf="!t.id" class="muted">Trailer no disponible.</div>
+					</div>
+				<div class="trailer-title">{{ t.title }}</div>
 			</div>
 		</div>
 	</section>

@@ -1,0 +1,7 @@
+.reserve-card{ display:flex; gap:1rem; padding:1rem }
+.reserve-card .left{ flex:0 0 300px }
+.reserve-card .poster{ width:300px; height:420px; background-size:cover; border-radius:6px }
+.reserve-card .right{ flex:1 }
+.reserve-card label{ display:block; margin-top:0.6rem; color:var(--muted) }
+.reserve-card input, .reserve-card select{ width:100%; padding:0.6rem; border-radius:6px; background: rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.04); color:#fff }
+.reserve-card .actions{ margin-top:1rem; display:flex; gap:0.6rem }
