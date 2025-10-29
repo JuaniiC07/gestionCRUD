@@ -81,17 +81,17 @@ export class List implements OnInit, OnDestroy {
     this.movieService.getAll().subscribe({ next: m => { this.movies = m; try { this.cdr.detectChanges(); } catch {} }, error: (err) => { this.movies = []; try { this.cdr.detectChanges(); } catch {} } });
   }
 
-  goToDetails(id?: number) {
+  goToDetails(id?: string | number) {
     if (id == null) return;
     this.router.navigate(['/details', id]);
   }
 
-  goToEdit(id?: number) {
+  goToEdit(id?: string | number) {
     if (id == null) return;
     this.router.navigate(['/form-edit', id]);
   }
 
-  delete(id?: number) {
+  delete(id?: string | number) {
     if (id == null) return;
     if (!confirm('¿Eliminar este registro?')) return;
     this.movieService.delete(id).subscribe(() => this.load());

@@ -15,7 +15,7 @@ import { Movie } from '../../models/movie';
 })
 export class FormEdit implements OnInit {
   form!: FormGroup;
-  id?: number;
+  id?: string;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +33,7 @@ export class FormEdit implements OnInit {
     });
 
     const idParam = this.route.snapshot.paramMap.get('id');
-    this.id = idParam ? Number(idParam) : undefined;
+    this.id = idParam ? idParam : undefined;
     if (this.id) {
       this.movieService.getById(this.id).subscribe(m => {
         this.form.patchValue({

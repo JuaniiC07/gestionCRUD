@@ -15,7 +15,7 @@ export class MovieService {
     return this.http.get<Movie[]>(this.baseUrl);
   }
 
-  getById(id: number): Observable<Movie> {
+  getById(id: string | number): Observable<Movie> {
     return this.http.get<Movie>(`${this.baseUrl}/${id}`);
   }
 
@@ -23,11 +23,11 @@ export class MovieService {
     return this.http.post<Movie>(this.baseUrl, movie);
   }
 
-  update(id: number, movie: Movie): Observable<Movie> {
+  update(id: string | number, movie: Movie): Observable<Movie> {
     return this.http.put<Movie>(`${this.baseUrl}/${id}`, movie);
   }
 
-  delete(id: number): Observable<any> {
+  delete(id: string | number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

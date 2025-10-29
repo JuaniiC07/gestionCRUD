@@ -34,6 +34,20 @@
       "year": 1995,
       "director": "John Lasseter",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BZTA3OWVjOWItNjE1NS00NzZiLWE1MjgtZDZhMWI1ZTlkNzYwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      "title": "Blanca Nieves y los siete enanos",
+      "year": 2024,
+      "director": "Marc Webb",
+      "posterUrl": "https://m.media-amazon.com/images/M/MV5BODhhMjU4ZGItZjEzZC00MzM1LWEyMTEtMDhmOTNiN2Y3MDg5XkEyXkFqcGc@._V1_.jpg",
+      "id": "390f"
+    },
+    {
+      "id": "48b1",
+      "title": "Huye",
+      "year": 2017,
+      "director": "Jordan Peele",
+      "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E0MGQ2N2MtYjVkOS00MDZmLTkzZGUtN2FjYTk4MDdiYzc1XkEyXkFqcGc@._V1_.jpg"
     }
   ]
 }

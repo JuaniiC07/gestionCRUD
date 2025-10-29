@@ -1,5 +1,5 @@
 export interface Movie {
-  id?: number;      // opcional al crear
+  id?: string | number; // accept string ids from db.json and numeric ids
   title: string;
   year: number;
   director: string;
