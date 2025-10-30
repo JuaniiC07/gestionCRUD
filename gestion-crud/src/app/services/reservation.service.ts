@@ -17,4 +17,8 @@ export class ReservationService {
   getAll(): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(this.baseUrl);
   }
+
+  delete(id: string | number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }

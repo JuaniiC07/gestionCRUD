@@ -9,6 +9,7 @@ export const routes: Routes = [
 		resolve: { movies: () => import('./resolvers/movies.resolver').then(r => r.MoviesResolver) }
 	},
 		{ path: 'reserve/:id', loadComponent: () => import('./pages/reserve/reserve').then(m => m.Reserve) },
+		{ path: 'reservations', loadComponent: () => import('./pages/reservations/reservations').then(m => m.Reservations) },
 	{ path: 'form', loadComponent: () => import('./pages/form/form').then(m => m.Form) },
 	{ path: 'form-edit/:id', loadComponent: () => import('./pages/form-edit/form-edit').then(m => m.FormEdit) },
 	{ path: 'details/:id', loadComponent: () => import('./pages/details/details').then(m => m.Details) },

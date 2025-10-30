@@ -1,0 +1,16 @@
+.reservations-list{ display:flex; flex-direction:column; gap:0.6rem }
+.reservation{ display:flex; justify-content:space-between; align-items:center; padding:0.6rem; border-bottom:1px solid rgba(255,255,255,0.03) }
+.reservation .left .title{ font-weight:700 }
+.reservation .left .meta{ color:var(--muted); font-size:0.95rem }
+.reservation .right .name{ font-weight:600 }
+.reservation .right .created{ color:var(--muted); font-size:0.85rem }
+
+.muted{ color:var(--muted) }
+
+.controls{ display:flex; gap:0.6rem; align-items:center; margin-bottom:0.6rem }
+.reservation .left{ display:flex; gap:0.6rem; align-items:center }
+.reservation .thumb{ width:60px; height:90px; background-size:cover; border-radius:6px; flex-shrink:0 }
+.reservation .meta-block{ display:flex; flex-direction:column }
+.actions{ margin-top:0.4rem }
+.btn-danger{ background:#c0392b; color:#fff; border:none; padding:0.3rem 0.6rem; border-radius:4px }
+.pager{ display:flex; gap:0.6rem; align-items:center; justify-content:center; margin-top:0.6rem }

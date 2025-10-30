@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -25,23 +25,41 @@ export class Reserve implements OnInit {
     private reservationService: ReservationService,
     private fb: FormBuilder,
     private router: Router
+    , private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (!id) return;
+    if (!id) return (this.movie = undefined);
+
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       tickets: [1, [Validators.required, Validators.min(1), Validators.max(10)]],
       time: ['', Validators.required]
     });
-    this.movieService.getById(id).subscribe({ next: m => { this.movie = m; this.times = this.generateTimes(m); }, error: () => {
-      // fallback: find in list
-      this.movieService.getAll().subscribe(list => {
-        this.movie = list.find(x => String(x.id) === id);
-        if (this.movie) this.times = this.generateTimes(this.movie);
-      });
-    } });
+    // Try direct fetch first (works for numeric and string ids)
+    this.movieService.getById(id).subscribe({
+      next: (m) => {
+        this.movie = m;
+        this.times = this.generateTimes(m);
+        try { this.cdr.detectChanges(); } catch {}
+      },
+      error: () => {
+        // Fallback: fetch all and attempt to find by id (string or numeric form)
+        this.movieService.getAll().subscribe({
+          next: (list) => {
+            const found = list.find(x => String(x.id) === id || (typeof x.id === 'number' && String(x.id) === id));
+            this.movie = found;
+            if (this.movie) this.times = this.generateTimes(this.movie);
+            try { this.cdr.detectChanges(); } catch {}
+          },
+          error: () => {
+            this.movie = undefined;
+            try { this.cdr.detectChanges(); } catch {}
+          }
+        });
+      }
+    });
   }
 
   generateTimes(m: Movie) {

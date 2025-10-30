@@ -43,12 +43,29 @@
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BODhhMjU4ZGItZjEzZC00MzM1LWEyMTEtMDhmOTNiN2Y3MDg5XkEyXkFqcGc@._V1_.jpg"
     },
     {
-      "id": "48b1",
       "title": "Huye",
       "year": 2017,
       "director": "Jordan Peele",
-      "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E0MGQ2N2MtYjVkOS00MDZmLTkzZGUtN2FjYTk4MDdiYzc1XkEyXkFqcGc@._V1_.jpg"
+      "posterUrl": "https://m.media-amazon.com/images/M/MV5BM2E0MGQ2N2MtYjVkOS00MDZmLTkzZGUtN2FjYTk4MDdiYzc1XkEyXkFqcGc@._V1_.jpg",
+      "id": "48b1"
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "id": "8ad8",
+      "movieId": "3",
+      "time": "13:00",
+      "name": "Juan",
+      "tickets": 2,
+      "createdAt": "2025-10-30T00:32:33.888Z"
+    },
+    {
+      "id": "da41",
+      "movieId": "43f9",
+      "time": "19:45",
+      "name": "Juan",
+      "tickets": 1,
+      "createdAt": "2025-10-30T00:39:45.929Z"
+    }
+  ]
 }

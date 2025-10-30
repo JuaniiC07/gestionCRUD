@@ -1,0 +1,37 @@
+<div class="container">
+  <section class="card">
+    <h2>Reservas</h2>
+    <div class="controls">
+      <label>Filtrar por película:</label>
+      <select [(ngModel)]="selectedMovieId">
+        <option value="">-- Todas --</option>
+        <option *ngFor="let m of movies" [value]="m.id">{{ m.title }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="reservations.length === 0" class="muted">No hay reservas aún.</div>
+    <div class="reservations-list">
+      <div class="reservation" *ngFor="let r of paged">
+        <div class="left">
+          <div class="thumb" [style.background-image]="posterFor(r)">
+          </div>
+          <div class="meta-block">
+            <div class="title">{{ r.movieTitle || ('ID: ' + r.movieId) }}</div>
+            <div class="meta">{{ r.time }} · Entradas: {{ r.tickets }}</div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="name">{{ r.name }}</div>
+          <div class="created">{{ r.createdAt ? (r.createdAt | date:'short') : '' }}</div>
+          <div class="actions"><button class="btn btn-danger" (click)="deleteReservation(r.id)">Eliminar</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pager" *ngIf="totalPages > 1">
+      <button (click)="changePage(-1)" [disabled]="page === 1">Anterior</button>
+      <span> Página {{ page }} / {{ totalPages }} </span>
+      <button (click)="changePage(1)" [disabled]="page === totalPages">Siguiente</button>
+    </div>
+  </section>
+</div>

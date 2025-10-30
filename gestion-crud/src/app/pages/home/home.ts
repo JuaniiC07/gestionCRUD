@@ -57,4 +57,18 @@ export class Home implements OnInit {
       }
     }
   }
+
+  // id of currently embedded trailer (lazy embed)
+  embeddedTrailerId?: string;
+
+  embedTrailer(t: { id: string; safeUrl?: SafeResourceUrl }) {
+    if (!t || !t.safeUrl) return;
+    this.embeddedTrailerId = t.id;
+    try { this.cdr.detectChanges(); } catch {}
+  }
+
+  closeEmbed() {
+    this.embeddedTrailerId = undefined;
+    try { this.cdr.detectChanges(); } catch {}
+  }
 }
